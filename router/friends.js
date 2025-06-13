@@ -26,9 +26,11 @@ router.post("/",(req,res)=>{
     if (req.body.email) {
         friends[req.body.email] = {
             "firstName" : req.body.firstName,
+            "lastName" : req.body.lastName,
+            "DOB" : req.body.DOB,
         };
     }
-    res.send("The user" + (' ') + (req.body.firstName) + "Has been added!");
+    res.send("The user" + (' ') + (req.body.firstName) + " Has been added!");
 });
 
 
@@ -44,7 +46,7 @@ router.put("/:email", (req, res) => {
         }
 
         friend[email] = friend;
-        res.send('Friend with the email ${email} updated.');
+        res.send('Friend with the email $email updated.');
     } else {
         res.send("Unable to find friend!");
     }
